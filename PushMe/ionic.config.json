@@ -1,0 +1,7 @@
+{
+  "name": "PushMe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
