@@ -1,0 +1,17 @@
+{
+  "name": "PushMe",
+  "short_name": "PushMe",
+  "theme_color": "#b70077",
+  "background_color": "#eef1fb",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
