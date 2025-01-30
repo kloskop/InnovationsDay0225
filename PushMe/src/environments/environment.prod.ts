@@ -10,6 +10,7 @@ export const environment = {
     measurementId: 'G-4BQ7LXWJD9',
     vapidKey:
       'BLIVi9s_VM9iAuwuKL3vkAyMM4BOHsCsVmcenr5WG6bkQ8Oj5PmPGmBXVdHEuMinavjNMCnySs38jen1AxkXpEc',
+    dataBaseURL:
+      'https://pushme-innovations-day-default-rtdb.europe-west1.firebasedatabase.app/',
   },
 };
-

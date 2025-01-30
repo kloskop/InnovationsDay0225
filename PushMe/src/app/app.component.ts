@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../environments/environment';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
+import { getMessaging, getToken, onMessage,  } from 'firebase/messaging';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 })
 export class AppComponent {
   message: any = null;
-  constructor() {}
+  constructor(
+    private _toastr: ToastrService
+  ) {}
   ngOnInit(): void {
     this.requestPermission();
     this.listen();
@@ -19,6 +22,7 @@ export class AppComponent {
 
   requestPermission() {
     const messaging = getMessaging();
+    
 
     getToken(messaging, { vapidKey: environment.firebase.vapidKey })
       .then((currentToken) => {
@@ -35,9 +39,12 @@ export class AppComponent {
   }
   listen() {
     const messaging = getMessaging();
+
     onMessage(messaging, (payload) => {
       console.log('Message received. ', payload);
+ 
       this.message = payload;
+      this._toastr.info(this.message?.notification?.title, this.message?.notification?.body)
     });
   }
 }
