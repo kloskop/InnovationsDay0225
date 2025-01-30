@@ -6,6 +6,7 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "start_url": ".",
+  "gcm_sender_id": "238179121502",
   "icons": [
     {
       "src": "assets/pwa/icon.png",

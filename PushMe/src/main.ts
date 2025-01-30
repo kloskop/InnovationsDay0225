@@ -1,17 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { Workbox } from 'workbox-window';
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .then((_) => loadServiceWorker())
-  .catch((err) => console.log(err));
+platformBrowserDynamic().bootstrapModule(AppModule);
 
-function loadServiceWorker() {
-  if ('serviceWorker' in navigator) {
-    const wb = new Workbox('/sw.js');
-
-    wb.register();
-  }
-}
+//https://www.linkedin.com/pulse/effortless-push-notifications-angular-using-firebase-rizki-hamdalah-swm9c/
