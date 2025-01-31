@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  gap: 16px; /* Adjust the gap between cards as needed */
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+ion-card {
+  width: 95%;
+}
+
+

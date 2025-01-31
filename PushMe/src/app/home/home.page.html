@@ -11,13 +11,124 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <h1>Push Me</h1>
-    <h4>And then just touch me</h4>
-    <h4>'Til I can get my</h4>
-    <h4>Satisfaction</h4>
-    <br/>
-    <p>{{version}}</p>
-  </div>
+  <ion-tabs>
+    <ion-tab tab="home">
+      <div id="container">
+        <h1>Push Me</h1>
+        <h4>And then just touch me</h4>
+        <h4>'Til I can get my</h4>
+        <h4>Satisfaction</h4>
+        <ion-icon
+          name="rocket-outline"
+          class="mainIcon"
+          [@zoomInFromBottom]
+        ></ion-icon>
+        <br />
+        <br />
+        <p>{{version}}</p>
+        <br />
+        <div *ngIf="fcmToken.CurrentToken">
+          <ion-button color="primary" (click)="copyToken()">
+            Copy FCM Token
+          </ion-button>
+        </div>
+      </div>
+    </ion-tab>
 
+    <ion-tab tab="components">
+      <ion-content>
+        <div style="margin-top: 70px"></div>
+        <div class="card-container">
+          <ion-card
+            class="ripple-parent ion-activatable"
+            href="https://firebase.google.com/docs/cloud-messaging/"
+            target="_blank"
+            ><ion-ripple-effect></ion-ripple-effect>
+            <div style="min-height: 15rem; display: flex; align-items: center; justify-content: center;">
+              <img
+                alt="Firebase"
+                src="https://cms-assets.tutsplus.com/uploads/users/1802/posts/32126/image/firebase_logo.jpg"
+              />
+            </div>
+
+            <ion-card-header>
+              <ion-card-title>Firebase</ion-card-title>
+              <ion-card-subtitle>FCM, Hosting</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content></ion-card-content>
+          </ion-card>
+          <ion-card
+            class="ripple-parent ion-activatable"
+            href="https://angular.dev/"
+            target="_blank"
+            ><ion-ripple-effect></ion-ripple-effect>
+            <img
+              alt="Angular"
+              src="https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/2023/2023-11/angular-logo-1200-628.png"
+            />
+            <ion-card-header>
+              <ion-card-title>Angular</ion-card-title>
+              <ion-card-subtitle>Frontend application</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content></ion-card-content>
+          </ion-card>
+          <ion-card
+            class="ripple-parent ion-activatable"
+            href="https://ionicframework.com/"
+            target="_blank"
+            ><ion-ripple-effect></ion-ripple-effect>
+            <img
+              alt="Ionic"
+              src="https://cdn-images-1.medium.com/v2/resize:fit:2600/1*nlhD6_U277a1s_VxSbH11g.jpeg"
+            />
+            <ion-card-header>
+              <ion-card-title>Ionic</ion-card-title>
+              <ion-card-subtitle>Mobile components</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content></ion-card-content>
+          </ion-card>
+          <ion-card
+            class="ripple-parent ion-activatable"
+            href="https://capacitorjs.com/"
+            target="_blank"
+            ><ion-ripple-effect></ion-ripple-effect>
+            <img
+              alt="Capacitor"
+              src="https://centogram.com/wp-content/uploads/2022/02/Capacitor-JS-Logo-1280x683.png"
+            />
+            <ion-card-header>
+              <ion-card-title>Capacitor</ion-card-title>
+              <ion-card-subtitle>Mobile builds</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content></ion-card-content>
+          </ion-card>
+          <ion-card
+            class="ripple-parent ion-activatable"
+            href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+            target="_blank"
+            ><ion-ripple-effect></ion-ripple-effect>
+            <img
+              alt="PWA"
+              src="https://assets.browserlondon.com/wp-content/uploads/2019/03/pwa-banner.png"
+            />
+            <ion-card-header>
+              <ion-card-title>Progressive Web Application</ion-card-title>
+              <ion-card-subtitle>Background work</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content></ion-card-content>
+          </ion-card>
+        </div>
+      </ion-content>
+    </ion-tab>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button tab="components">
+        <ion-icon name="layers"> </ion-icon>
+        Components
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
