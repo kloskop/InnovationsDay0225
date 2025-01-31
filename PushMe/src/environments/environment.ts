@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  version: '1/31/2025 - v.1',
   firebase: {
     apiKey: 'AIzaSyBBwRvE-nm9nPuBzzZJNaE62kE6dWEJlgo',
     authDomain: 'pushme-innovations-day.firebaseapp.com',
