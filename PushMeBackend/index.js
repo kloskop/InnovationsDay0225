@@ -17,6 +17,11 @@ const key = {
     project_id: process.env.FIREBASE_PROJECT_ID,
   };
 
+/**
+ * getToken function retrieves an access token for Firebase Messaging.
+ * It uses the JWT client to authenticate and authorize the request.
+ * @returns {Promise<string>} A promise that resolves to the access token.
+ */
 const getToken = async () => {
   return new Promise((resolve, reject) => {
     const jwtClient = new google.auth.JWT(
@@ -37,6 +42,10 @@ const getToken = async () => {
   });
 };
 
+/**
+ * Handles GET requests to /token endpoint.
+ * Fetches an access token using getToken function and sends it as a response.
+ */
 app.get("/token", async (req, res) => {
   try {
     const token = await getToken();
@@ -47,6 +56,10 @@ app.get("/token", async (req, res) => {
   }
 });
 
+/**
+ * Handles POST requests to /message endpoint.
+ * Sends a message to a Firebase Cloud Messaging (FCM) token using the access token.
+ */
 app.post("/message", async (req, res) => {
   const { message } = req.body;
 

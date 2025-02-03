@@ -15,6 +15,9 @@ export class FcmPWAService {
 
   message: any = null;
 
+  /**
+   * Requests permission for push notifications and handles the token retrieval process.
+   */
   public requestPermission() {
     const messaging = getMessaging();
 
@@ -33,6 +36,9 @@ export class FcmPWAService {
       });
   }
 
+  /**
+   * Listens for incoming push notifications and displays them using the ToastrService.
+   */
   public listen() {
     const messaging = getMessaging();
 
