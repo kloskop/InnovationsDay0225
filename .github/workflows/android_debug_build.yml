@@ -45,7 +45,7 @@ jobs:
 
       - name: Copy android build files
         run: |
-          cp src/assets/google-services.json android/app/
+          cp src/google-services.json android/app/
           cp src/assets/variables.gradle android/variables.gradle
 
       - name: Generate Assets - Icons and Splash Screens
