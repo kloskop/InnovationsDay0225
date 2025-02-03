@@ -68,12 +68,17 @@ jobs:
       - name: List files in directory
         run: ls -R android/app/build/outputs/apk/
 
-      - name: List files in directory
-        run: ls -R android/app/build/outputs/apk/debug
+      - name: Wait for file to be written
+        run: sleep 5
+
+      - name: Debug file path
+        run: |
+          echo "File path: ${{ github.workspace }}/android/app/build/outputs/apk/debug/app-debug.apk"
+          ls -l ${{ github.workspace }}/android/app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload Debug Installation File
         uses: actions/upload-artifact@v4
         with:
           name: android-debug-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ github.workspace }}/android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
