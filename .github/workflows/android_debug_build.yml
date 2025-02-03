@@ -47,6 +47,7 @@ jobs:
         run: |
           cp google-services.json android/app/
           cp assets/variables.gradle android/variables.gradle
+          cp assets/build.gradle android/build.gradle
 
       - name: Generate Assets - Icons and Splash Screens
         run: npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111' --android --ios

@@ -38,3 +38,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PUSHME_INNOVATIONSDAY }}
           channelId: live
           projectId: pushme-innovations-day
+          entryPoint: 'PushMe'
