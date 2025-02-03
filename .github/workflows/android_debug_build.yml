@@ -32,12 +32,7 @@ jobs:
           java-version: "17"
 
       - name: Install Gradle
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget https://services.gradle.org/distributions/gradle-8.0-bin.zip
-          sudo unzip -d /opt/gradle gradle-8.0-bin.zip
-          sudo ln -sf /opt/gradle/gradle-8.0/bin/gradle /usr/bin/gradle
+        run: sudo apt-get install -y gradle
 
       - name: Install Capacitor CLI
         run: npm install -g @capacitor/cli
