@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: "17"
+          java-version: "21"
 
       - name: Install Gradle
         run: sudo apt-get install -y gradle
@@ -46,9 +46,6 @@ jobs:
       - name: Copy android build files
         run: |
           cp google-services.json android/app/
-          cp assets/variables.gradle android/variables.gradle
-          cp assets/build.gradle android/build.gradle
-          cp assets/build/build.gradle android/app/build.gradle
 
       - name: Generate Assets - Icons and Splash Screens
         run: npx @capacitor/assets generate --iconBackgroundColor '#eeeeee' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#eeeeee' --splashBackgroundColorDark '#111111' --android --ios
