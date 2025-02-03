@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { initializeApp } from 'firebase/app';
-import { environment } from '../environments/environment';
-import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-import { ToastrService } from 'ngx-toastr';
-import { FcmTokenService } from './fcm-token.service';
+import { Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+import { FcmPWAService } from './fcm-pwa.service';
+import { FcmMobileService } from './fcm-mobile.service';
 
 @Component({
   selector: 'app-root',
@@ -12,44 +11,25 @@ import { FcmTokenService } from './fcm-token.service';
   standalone: false,
 })
 export class AppComponent {
-  message: any = null;
   constructor(
-    private _toastr: ToastrService,
-    private _fcmToken: FcmTokenService
-  ) {}
-  ngOnInit(): void {
-    this.requestPermission();
-    this.listen();
-  }
+    private _platform: Platform,
+    private _fcmPWA: FcmPWAService,
+    private _fcmMobile: FcmMobileService
+  ) {
+    this._platform.ready().then(() => {
+      if (Capacitor.getPlatform() === 'web') {
+        console.info('WEB platform - FCM init');
 
-  requestPermission() {
-    const messaging = getMessaging();
+        this._fcmPWA.requestPermission();
+        this._fcmPWA.listen();
+      } else {
+        console.info('mobile platform - FCM init');
 
-    getToken(messaging, { vapidKey: environment.firebase.vapidKey })
-      .then((currentToken) => {
-        if (currentToken) {
-          console.log('Notification Token: ');
-          console.log(currentToken);
-          this._fcmToken.setCurrentToken(currentToken);
-        } else {
-          console.log('No token available. Generate Token first!');
-        }
-      })
-      .catch((err) => {
-        console.log('An error occurred while generating token. ', err);
-      });
-  }
-  listen() {
-    const messaging = getMessaging();
-
-    onMessage(messaging, (payload) => {
-      console.log('Message received. ', payload);
-
-      this.message = payload;
-      this._toastr.info(
-        this.message?.notification?.title,
-        this.message?.notification?.body
-      );
+        this._fcmMobile.initPush().catch((error) => {
+          console.error(error);
+        });
+      }
     });
   }
+  ngOnInit(): void {}
 }

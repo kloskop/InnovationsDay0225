@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "238179121502",
+    "firebase_url": "https://pushme-innovations-day-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pushme-innovations-day",
+    "storage_bucket": "pushme-innovations-day.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238179121502:android:23fffa40cba098624df7cf",
+        "android_client_info": {
+          "package_name": "com.innovationsday.pushme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOM2bhv4SqatwIPCF084CMNoBaEZCJ4gA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
